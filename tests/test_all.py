@@ -18,23 +18,19 @@ if __name__ == "__main__":
     t1 = time.perf_counter()
     print(f"Load smdbz cost {t1-t0} seconds")
 
-    with open("./idxs.json") as f:
-        idxs = json.load(f)
+    with open("./index_value_mapping.json") as f:
+        value_mapping = json.load(f)
 
     t2 = time.perf_counter()
     for _ in range(1000):
-        iy, ix = random.choice(idxs)
-        # xx = smdbz.get(iy, ix)
+        iy, ix = random.choice(value_mapping)["idx"]
         xx = smdbz[iy, ix]
         # xx = [array[iy, ix] for array in smdbz]
-        # print(xx)
+        print(xx)
 
     t3 = time.perf_counter()
     print(f"Access cost {round((t3 - t2)*1000, 2)} us")
 
-    with open("./value_mapping.json") as f:
-        value_mapping = json.load(f)
-    
     for idx in value_mapping:
         iy, ix = idx["idx"]
         assert smdbz[iy, ix] == idx["value"]
