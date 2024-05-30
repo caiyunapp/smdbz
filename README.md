@@ -2,8 +2,11 @@
 Sparse Matrix dBZ 稀疏矩阵 dBZ 等级数据读取
 
 ## 安装
+克隆项目到本地
 ```bash
-$ pip install git+https://github.com/caiyunapp/smdbz.git
+$ git clone https://github.com/caiyunapp/smdbz.git
+$ cd smdbz
+$ python setup.py install # 开发模式执行 python setup.py develop
 ```
 
 ## 测试
